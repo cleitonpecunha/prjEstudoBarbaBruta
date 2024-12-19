@@ -1,5 +1,5 @@
 {
-  "name": "prjBarbaBruta",
+  "name": "prjBarbaBrutal",
   "private": true,
   "scripts": {
     "build": "turbo build",

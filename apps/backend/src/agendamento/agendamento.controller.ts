@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, HttpException, Param, Post } from '@nestjs/common';
-import { UsuarioLogado } from 'src/shared/usuario.decorator';
+import { UsuarioLogado } from 'src/usuario/usuario.decorator';
 import { AgendamentoPrisma } from './agendamento.prisma';
 import { Agendamento, 
          BuscarAgendamentosCliente,

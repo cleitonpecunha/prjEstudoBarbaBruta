@@ -1,6 +1,6 @@
-import Cabecalho from "../shared/Cabecalho";
 import Image from 'next/image'
 import Link from 'next/link'
+import MenuSuperior from "../shared/MenuSuperior";
 
 export default function Slogan() {
     return (
@@ -10,7 +10,7 @@ export default function Slogan() {
             
             <div className="flex flex-col items-center absolute top-0 left-0 w-full h-full bg-black/65">
                 
-                <Cabecalho />
+                <MenuSuperior/>
                 
                 <div className="flex flex-col justify-center items-center flex-1 gap-5">
                     

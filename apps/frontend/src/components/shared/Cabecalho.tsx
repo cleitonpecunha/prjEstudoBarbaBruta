@@ -1,34 +1,28 @@
-'use client'
+import Image from 'next/image'
+import MenuSuperior from './MenuSuperior'
 
-import Link from 'next/link'
-import Logo from './Logo'
-import useSessao from '@/data/hooks/useSessao'
-import MenuUsuario from './formulario/MenuUsuario'
+interface CabecalhoProps {
+    titulo: string
+    descricao: string
+}
 
-export default function Cabecalho() {
-
-    const { usuario } = useSessao()
-
+export default function Cabecalho(props: CabecalhoProps) {
     return (
-        <header className="flex items-center h-24 bg-black/60 self-stretch">
+        <div className="relative h-[180px]">
             
-            <nav className="flex items-center justify-between container">
+            <Image src="/banners/principal.webp" fill alt="Barbearia" className="object-cover" />
+            
+            <div className="flex flex-col absolute top-0 left-0 w-full h-full bg-black/70">
                 
-                <Logo />
-
-                {/* <div>{usuario?.nome ?? 'Vazio'}</div> */}
+                <MenuSuperior />
                 
-                <div>{usuario ? 
-                    <MenuUsuario /> : 
-                    <Link href="/entrar">Entrar</Link>}
+                <div className="container flex flex-col justify-center items-center">
+                    <h1 className="text-3xl font-bold text-zinc-200">{props.titulo}</h1>
+                    <p className="text-xs font-light text-zinc-400">{props.descricao}</p>
                 </div>
-                
-                {/* <div>
-                    <Link href="/entrar">Entrar</Link>
-                </div> */}
 
-            </nav>
-
-        </header>
+            </div>
+            
+        </div>
     )
 }

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './usuario/usuario.module';
 import { DbModule } from './db/db.module';
 import { AgendamentoModule } from './agendamento/agendamento.module';
 import { ProfissionalModule } from './profissional/profissional.module';
