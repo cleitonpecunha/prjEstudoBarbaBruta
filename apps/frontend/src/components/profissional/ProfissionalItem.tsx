@@ -4,7 +4,7 @@ import {
     IconBrandX,
     IconBrandLinkedin,
 } from '@tabler/icons-react'
-import { Profissional } from '@barba/core'
+import { Profissional } from '@barbabrutal/core'
 import Image from 'next/image'
 import Avaliacao from '../shared/Avaliacao'
 
@@ -22,7 +22,7 @@ export default function ProfissionalItem(props: ProfissionalItemProps) {
         >
             <div className="relative h-72 w-full">
                 <Image
-                    src={props.profissional.imagemUrl}
+                    src={props.profissional.imagemURL}
                     fill
                     alt={props.profissional.nome}
                     className="object-cover object-top rounded-t-lg"

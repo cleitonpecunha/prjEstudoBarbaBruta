@@ -1,4 +1,4 @@
-import { Servico } from '@barba/core'
+import { Servico } from '@barbabrutal/core'
 import Image from 'next/image'
 
 export interface ServicoItemProps {
