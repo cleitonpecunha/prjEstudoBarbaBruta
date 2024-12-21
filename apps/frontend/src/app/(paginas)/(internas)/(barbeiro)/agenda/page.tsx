@@ -7,7 +7,10 @@ import Cabecalho from '@/components/shared/Cabecalho'
 import AgendaProfissionalItem from '@/components/agendamento/AgendaProfissionalItem'
 
 export default function PaginaAgenda() {
-    const { data, agendamentos, alterarData, excluirAgendamento } = useProfissionalAgenda()
+    const { data,
+            agendamentos,
+            alterarData,
+            excluirAgendamento } = useProfissionalAgenda()
 
     return (
         <div className="flex flex-col bg-zinc-900">

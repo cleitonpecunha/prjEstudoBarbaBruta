@@ -1,4 +1,4 @@
-/*
+
 import { useCallback } from 'react'
 import useSessao from './useSessao'
 
@@ -63,8 +63,9 @@ export default function useAPI() {
 
     return { httpGet, httpPost, httpDelete }
 }
-*/
+
  
+/*
 import useSessao from "./useSessao"
 
 export default function useAPI() {
@@ -129,3 +130,4 @@ export default function useAPI() {
     
     return { httpGet, httpPost, httpDelete }
 } 
+*/

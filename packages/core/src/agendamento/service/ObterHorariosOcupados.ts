@@ -1,20 +1,11 @@
 import { TEMPO_SLOT } from '../../constants'
-import CasoDeUso from '../../shared/CasoDeUso'
 import RepositorioAgendamento from '../provider/RepositorioAgendamento'
 
-type Entrada = {
-    profissionalId: number
-    data: Date
-}
-
-export default class ObterHorariosOcupados implements CasoDeUso<Entrada, string[]> {
+export default class ObterHorariosOcupados {
     constructor(private readonly repo: RepositorioAgendamento) {}
 
-    async executar(entrada: Entrada): Promise<string[]> {
-        const { profissionalId, data } = entrada
-
+    async executar(profissionalId: number, data: Date): Promise<string[]> {
         const agendamentos = await this.repo.buscarPorProfissionalEData(profissionalId, data)
-
         const dados = agendamentos
             .map((agendamento) => {
                 return {

@@ -1,3 +1,4 @@
+import useAgendamento from '@/data/hooks/useAgendamento'
 import DiaInput from './DiaInput'
 import HorariosInput from './HorariosInput'
 
@@ -9,11 +10,12 @@ export interface DataInputProps {
 
 export default function DataInput(props: DataInputProps) {
     const { data, quantidadeDeSlots, dataMudou } = props
+    const { horariosOcupados } = useAgendamento()
 
     return (
         <div className="flex flex-col gap-10">
             <DiaInput data={data} dataMudou={dataMudou} />
-            <HorariosInput data={data} qtdeHorarios={quantidadeDeSlots} dataMudou={dataMudou} />
+            <HorariosInput horariosOcupados={horariosOcupados} data={data} qtdeHorarios={quantidadeDeSlots} dataMudou={dataMudou} />
         </div>
     )
 }
