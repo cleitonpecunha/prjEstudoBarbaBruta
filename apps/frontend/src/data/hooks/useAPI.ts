@@ -1,4 +1,3 @@
-
 import { useCallback } from 'react'
 import useSessao from './useSessao'
 
@@ -36,6 +35,7 @@ export default function useAPI() {
         },
         [token]
     )
+    
     const httpDelete = useCallback(
         async function (uri: string): Promise<any> {
             const path = uri.startsWith('/') ? uri : `/${uri}`
@@ -64,8 +64,7 @@ export default function useAPI() {
     return { httpGet, httpPost, httpDelete }
 }
 
- 
-/*
+/* 
 import useSessao from "./useSessao"
 
 export default function useAPI() {

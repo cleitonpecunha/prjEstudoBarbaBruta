@@ -11,4 +11,4 @@ import { UsuarioMiddleware } from './usuario.middleware';
   providers: [UsuarioRepositorio, BcryptProvider, UsuarioMiddleware],
   exports: [UsuarioMiddleware, UsuarioRepositorio]
 })
-export class AuthModule {}
+export class UsuarioModule {}
