@@ -1,23 +1,9 @@
-GET http://localhost:4000/ping
+GET http://localhost:3001/servico
+
 
 ###
-POST http://localhost:4000/auth/
-
-###
-POST http://localhost:4000/auth/registrar
-content-type: application/json
-
-{
-    "nome": "Rebeca Pereira Silva",
-    "email": "rebeca@zmail.com",
-    "senha": "#Senha123",
-    "telefone": "(11) 88888-9999",
-    "barbeiro": false
-}
-
-###
-POST http://localhost:4000/usuario/login
-content-type: application/json
+POST http://localhost:3001/usuario/login
+Content-Type: application/json
 
 {
     "email": "marcao@barbabrutal.app",
@@ -25,39 +11,40 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:4000/profissionais
-
-###
-GET http://localhost:4000/servicos
-
-###
-POST http://localhost:4000/agendamentos
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibm9tZSI6IlJlYmVjYSBQZXJlaXJhIFNpbHZhIiwiZW1haWwiOiJyZWJlY2FAem1haWwuY29tIiwidGVsZWZvbmUiOiIoMTEpIDg4ODg4LTk5OTkiLCJiYXJiZWlybyI6ZmFsc2UsImlhdCI6MTczMzIyMjE4NCwiZXhwIjoxNzMzMzA4NTg0fQ.MD7m3D2HfSSCsdnKApa0HWGKspk_YjYRjuoO58C3BtU
+POST http://localhost:3001/usuario/registrar
 Content-Type: application/json
 
 {
-    "data": "2024-12-03T13:00:00.000Z",
-    "usuario": { "id": 4 },
-    "profissional": { "id": 1 },
+    "nome": "Kathya Tesourada",
+    "email": "kathya@barbabrutal.app",
+    "senha": "#Senha123",
+    "telefone": "11999999999"
+}
+
+###
+POST http://localhost:3001/agendamentos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6Ik1hcmPDo28gTWFjaGFkYWRhIiwiZW1haWwiOiJtYXJjYW9AYmFyYmFicnV0YWwuYXBwIiwidGVsZWZvbmUiOiIoMTEpIDk5OTk5LTk5OTkiLCJiYXJiZWlybyI6dHJ1ZSwiaWF0IjoxNzM0OTY2MzUxLCJleHAiOjE3MzYyNjIzNTF9.e0egMWQEroFF84QS8EqnZQUv9uwgAUzNNQNOROfs0q4
+Content-Type: application/json
+
+{
+    "data": "2024-07-30T13:00:00.000Z",
+    "usuario": { "id": 5 },
+    "profissional": { "id": 4 },
     "servicos": [
-        { "id": 1 },
+        { "id": 1 }, 
         { "id": 2 },
         { "id": 3 }
     ]
 }
 
 ###
-GET http://localhost:4000/agendamentos
+GET http://localhost:3001/agendamentos/1/2024-12-25
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6Ik1hcmPDo28gTWFjaGFkYWRhIiwiZW1haWwiOiJtYXJjYW9AYmFyYmFicnV0YWwuYXBwIiwidGVsZWZvbmUiOiIoMTEpIDk5OTk5LTk5OTkiLCJiYXJiZWlybyI6dHJ1ZSwiaWF0IjoxNzM0OTY2MzUxLCJleHAiOjE3MzYyNjIzNTF9.e0egMWQEroFF84QS8EqnZQUv9uwgAUzNNQNOROfs0q4
+
+###
+DELETE http://localhost:3001/agendamentos/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibm9tZSI6IlJlYmVjYSBQZXJlaXJhIFNpbHZhIiwiZW1haWwiOiJyZWJlY2FAem1haWwuY29tIiwidGVsZWZvbmUiOiIoMTEpIDg4ODg4LTk5OTkiLCJiYXJiZWlybyI6ZmFsc2UsImlhdCI6MTczMzIyMjE4NCwiZXhwIjoxNzMzMzA4NTg0fQ.MD7m3D2HfSSCsdnKApa0HWGKspk_YjYRjuoO58C3BtU
 
 ###
-GET http://localhost:4000/agendamentos/1/2024-12-03
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibm9tZSI6IlJlYmVjYSBQZXJlaXJhIFNpbHZhIiwiZW1haWwiOiJyZWJlY2FAem1haWwuY29tIiwidGVsZWZvbmUiOiIoMTEpIDg4ODg4LTk5OTkiLCJiYXJiZWlybyI6ZmFsc2UsImlhdCI6MTczMzIyMjE4NCwiZXhwIjoxNzMzMzA4NTg0fQ.MD7m3D2HfSSCsdnKApa0HWGKspk_YjYRjuoO58C3BtU
-
-###
-DELETE http://localhost:4000/agendamentos/2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibm9tZSI6IlJlYmVjYSBQZXJlaXJhIFNpbHZhIiwiZW1haWwiOiJyZWJlY2FAem1haWwuY29tIiwidGVsZWZvbmUiOiIoMTEpIDg4ODg4LTk5OTkiLCJiYXJiZWlybyI6ZmFsc2UsImlhdCI6MTczMzIyMjE4NCwiZXhwIjoxNzMzMzA4NTg0fQ.MD7m3D2HfSSCsdnKApa0HWGKspk_YjYRjuoO58C3BtU
-
-###
-GET http://localhost:4000/agendamentos/ocupacao/1/2024-12-25
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6Ik1hcmPDo28gTWFjaGFkYWRhIiwiZW1haWwiOiJtYXJjYW9AYmFyYmFicnV0YWwuYXBwIiwidGVsZWZvbmUiOiIoMTEpIDk5OTk5LTk5OTkiLCJiYXJiZWlybyI6dHJ1ZSwiaWF0IjoxNzM0ODYyNDAxLCJleHAiOjE3MzYxNTg0MDF9.9d1q_ETebxNL8Sy5ad09ttOdYk77NhXSQqmiVn1XxiQ
+GET http://localhost:3001/agendamentos/ocupacao/1/2024-12-25
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6Ik1hcmPDo28gTWFjaGFkYWRhIiwiZW1haWwiOiJtYXJjYW9AYmFyYmFicnV0YWwuYXBwIiwidGVsZWZvbmUiOiIoMTEpIDk5OTk5LTk5OTkiLCJiYXJiZWlybyI6dHJ1ZSwiaWF0IjoxNzM0OTY2MzUxLCJleHAiOjE3MzYyNjIzNTF9.e0egMWQEroFF84QS8EqnZQUv9uwgAUzNNQNOROfs0q4

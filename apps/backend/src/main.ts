@@ -1,11 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import ErrorFilter from 'error.filter';
+import { ErrorFilter } from './error.filter';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, {cors: true} );
+  const port = process.env.PORT ?? 3001;
+  const app = await NestFactory.create(AppModule, { cors: true });
   app.useGlobalFilters(new ErrorFilter());
-  //await app.listen(process.env.PORT ?? 4000);
-  await app.listen(4000);
+  await app.listen(port);
 }
 bootstrap();
