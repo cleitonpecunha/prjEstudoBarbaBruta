@@ -1,9 +1,10 @@
 import { PrismaClient } from '@prisma/client';
-import { profissionais, servicos, Usuario } from '@barbabrutal/core';
+import { profissionais, servicos, Usuario, ProfissionalUsuario } from '@barbabrutal/core';
 
 const prisma = new PrismaClient();
 
 async function seed() {  
+  /*
   //await prisma.profissional.deleteMany();
   await prisma.profissional.createMany({
     data: profissionais as any,
@@ -19,11 +20,11 @@ async function seed() {
 
   const usuarios: Usuario[] = [
     {
-        nome: 'Cleiton Galego',
-        email: 'galego@zmail.com',
-        senha,
-        telefone: '(11) 99999-9999',
-        barbeiro: false,
+      nome: 'Cleiton Galego',
+      email: 'galego@zmail.com',
+      senha,
+      telefone: '(11) 99999-9999',
+      barbeiro: false,
     },
     {
       nome: 'Marcão Machadada',
@@ -32,17 +33,21 @@ async function seed() {
       telefone: '(11) 99999-9999',
       barbeiro: true,
     },
-    {
-      nome: 'Leonardo Leitão',
-      email: 'leonardo@formacao.dev',
-      senha,
-      telefone: '(11) 99999-9999',
-      barbeiro: false,
-    },
   ];
 
   //await prisma.usuario.deleteMany();
   await prisma.usuario.createMany({ data: usuarios as any });
+  */
+
+  // Inserir na ProfissionalUsuario
+  const profissionalusuario: ProfissionalUsuario[] = [
+    {
+      usuario: 2,
+      profissional: 1,
+    },
+  ];
+  //await prisma.profissionalusuario.deleteMany();
+  await prisma.profissionalUsuario.createMany({ data: profissionalusuario as any });
 }
 
 seed();

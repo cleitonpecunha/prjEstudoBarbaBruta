@@ -13,9 +13,18 @@ CREATE TABLE "profissionais" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "nome" TEXT NOT NULL,
     "descricao" TEXT NOT NULL,
-    "imagemURL" TEXT NOT NULL,
+    "imagemUrl" TEXT NOT NULL,
     "avaliacao" REAL NOT NULL,
     "quantidadeAvaliacoes" INTEGER NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "profissionaisusuarios" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "usuarioId" INTEGER NOT NULL,
+    "profissionalId" INTEGER NOT NULL,
+    CONSTRAINT "profissionaisusuarios_usuarioId_fkey" FOREIGN KEY ("usuarioId") REFERENCES "usuarios" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "profissionaisusuarios_profissionalId_fkey" FOREIGN KEY ("profissionalId") REFERENCES "profissionais" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
@@ -25,7 +34,7 @@ CREATE TABLE "servicos" (
     "descricao" TEXT NOT NULL,
     "preco" REAL NOT NULL,
     "qtdeSlots" INTEGER NOT NULL,
-    "imagemURL" TEXT NOT NULL
+    "imagemUrl" TEXT NOT NULL
 );
 
 -- CreateTable
