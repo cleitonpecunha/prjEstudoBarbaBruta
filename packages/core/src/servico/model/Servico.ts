@@ -4,5 +4,5 @@ export default interface Servico {
     descricao: string
     preco: number
     qtdeSlots: number
-    imagemURL: string
+    imagemUrl: string
 }

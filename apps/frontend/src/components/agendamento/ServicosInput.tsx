@@ -15,7 +15,7 @@ function Opcao(props: { servico: Servico; onClick: (s: Servico) => void; selecio
             onClick={() => props.onClick(props.servico)}
         >
             <Image
-                src={props.servico.imagemURL}
+                src={props.servico.imagemUrl}
                 alt={props.servico.nome}
                 width={150}
                 height={120}

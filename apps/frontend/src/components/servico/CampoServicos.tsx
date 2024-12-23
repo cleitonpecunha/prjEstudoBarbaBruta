@@ -22,7 +22,7 @@ function Opcao(props: {
             onClick={() => props.servicoMudou(props.servico)}
         >            
             <Image 
-                src={props.servico.imagemURL} 
+                src={props.servico.imagemUrl} 
                 height={150} 
                 width={150} 
                 alt={props.servico.nome}

@@ -22,7 +22,7 @@ function Opcao(props: {
             onClick={() => props.profissionalMudou(props.profissional)}
         >            
             <Image 
-                src={props.profissional.imagemURL} 
+                src={props.profissional.imagemUrl} 
                 height={150} 
                 width={150} 
                 alt={props.profissional.nome}
