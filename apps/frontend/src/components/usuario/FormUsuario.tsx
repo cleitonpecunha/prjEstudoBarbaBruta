@@ -60,7 +60,7 @@ export default function FormUsuario() {
                                 type="text"
                                 value={nome}
                                 onChange={(e) => setNome(e.target.value)}
-                                placeholder="Nome"
+                                placeholder="Informe o Nome"
                                 className="bg-zinc-900 px-4 py-2 rounded"
                             />
                         )}
@@ -68,14 +68,14 @@ export default function FormUsuario() {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            placeholder="E-mail"
+                            placeholder="Informe o E-mail"
                             className="bg-zinc-900 px-4 py-2 rounded"
                         />
                         <input
                             type="password"
                             value={senha}
                             onChange={(e) => setSenha(e.target.value)}
-                            placeholder="Senha"
+                            placeholder="Informe a Senha"
                             className="bg-zinc-900 px-4 py-2 rounded"
                         />
                         {modo === 'cadastrar' && (
@@ -85,7 +85,7 @@ export default function FormUsuario() {
                                 onChange={(s) =>
                                     setTelefone(TelefoneUtils.desformatar(s.target.value))
                                 }
-                                placeholder="Telefone"
+                                placeholder="Informe o Telefone"
                                 className="bg-zinc-900 px-4 py-2 rounded"
                             />
                         )}
