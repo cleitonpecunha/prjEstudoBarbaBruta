@@ -13,5 +13,20 @@ export class ProfissionalusuarioPrisma implements RepositorioProfissionalUsuario
             profissional: { connect: { id: profissionalusuario.profissional.id } },            
           },
         });
+    }    
+
+    async buscarProfissionalPorIdUsuario(usuario: number): Promise<ProfissionalUsuario[]> {
+  
+      const resultado: any = await this.prismaService.profissionalUsuario.findMany
+      ({
+        where: {
+          usuarioId: usuario },
+        include: {
+          usuario: { select: { id: true, nome: true, email: true } },
+          profissional: { select: { id: true, nome: true } } },
+      });
+  
+      return resultado;
     }
+
 }
