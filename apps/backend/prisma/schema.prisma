@@ -69,3 +69,18 @@ model Agendamento {
 
   @@map("agendamentos")
 }
+
+model HoraCheiaAtendimento {
+  id   Int @id @default(autoincrement())
+  hora Int @unique
+}
+
+model DiaSemanaAtendimento {
+  id         Int @id @default(autoincrement())
+  descricao String @unique
+}
+
+model PeriodoAtendimento {
+  id    Int @id @default(autoincrement())
+  ativo Boolean @default(false)
+}

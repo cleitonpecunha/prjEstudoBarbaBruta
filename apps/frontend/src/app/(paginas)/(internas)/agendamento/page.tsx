@@ -68,7 +68,12 @@ export default function PaginaAgendamento() {
                         profissional={profissional}
                         profissionalMudou={profissionalMudou}
                     />
-                    <ServicosInput servicos={servicos} servicosMudou={servicosMudou} />
+                    
+                    <ServicosInput 
+                        servicos={servicos} 
+                        servicosMudou={servicosMudou} 
+                    />
+                    
                     <DataInput
                         data={data}
                         dataMudou={dataMudou}
@@ -76,6 +81,7 @@ export default function PaginaAgendamento() {
                         quantidadeDeSlots={quantidadeDeSlots()}
                     />
                 </Passos>
+                
                 <Sumario />
             </div>
         </div>

@@ -6,6 +6,7 @@ export interface DataInputProps {
     data: Date
     quantidadeDeSlots: number
     dataMudou: (data: Date) => void
+    horariosOcupados: string[]
 }
 
 export default function DataInput(props: DataInputProps) {
@@ -15,7 +16,12 @@ export default function DataInput(props: DataInputProps) {
     return (
         <div className="flex flex-col gap-10">
             <DiaInput data={data} dataMudou={dataMudou} />
-            <HorariosInput horariosOcupados={horariosOcupados} data={data} qtdeHorarios={quantidadeDeSlots} dataMudou={dataMudou} />
+            <HorariosInput 
+                horariosOcupados={horariosOcupados} 
+                data={data} 
+                qtdeHorarios={quantidadeDeSlots} 
+                dataMudou={dataMudou} 
+            />
         </div>
     )
 }

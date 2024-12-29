@@ -24,6 +24,7 @@ export default function HorariosInput(props: HorariosInputProps) {
     })
 
     function obterPeriodo(horario: string | null, qtde: number): string[] {
+        
         if (!horario) return []
         
         const horarios = manha.includes(horario) ? manha : tarde.includes(horario) ? tarde : noite
@@ -34,6 +35,7 @@ export default function HorariosInput(props: HorariosInputProps) {
     }
 
     function renderizarHorario(horario: string) {
+        
         const periodo = obterPeriodo(horaHover, props.qtdeHorarios)
         
         const periodoSelecionado = obterPeriodo(horaSelecionada, props.qtdeHorarios)
@@ -50,7 +52,7 @@ export default function HorariosInput(props: HorariosInputProps) {
         const periodoBloqueado =
             periodo.includes(horario) && periodo.some((h) => horariosOcupados.includes(h))
         
-            const ocupado = horariosOcupados.includes(horario)
+        const ocupado = horariosOcupados.includes(horario)
 
         return (
             <div
