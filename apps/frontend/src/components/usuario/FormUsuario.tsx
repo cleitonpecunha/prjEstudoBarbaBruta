@@ -5,14 +5,21 @@ import { TelefoneUtils } from '@barbabrutal/core'
 import useUsuario from '@/data/hooks/useUsuario'
 import Logo from '@/components/shared/Logo'
 import Image from 'next/image'
+import cookie from 'js-cookie'
 
 export default function FormUsuario() {
+    
+    const emailUsuarioCookie = 'barba-usuario'    
+    const emailUsuario = cookie.get(emailUsuarioCookie)
+    
     const [modo, setModo] = useState<'entrar' | 'cadastrar'>('entrar')
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
     const [telefone, setTelefone] = useState('')
     const [senha, setSenha] = useState('')
-
+    
+    //console.log(emailUsuario)    
+    
     const { usuario, entrar, registrar } = useUsuario()
 
     const params = useSearchParams()
@@ -22,8 +29,10 @@ export default function FormUsuario() {
         if (usuario?.email) {
             const dest = params.get('destino') as string
             router.push(dest ? dest : '/')
+        } else {
+            setEmail(emailUsuario!)
         }
-    }, [usuario, router, params])
+    }, [usuario, router, params, emailUsuario])
 
     async function submeter() {
         if (modo === 'entrar') {

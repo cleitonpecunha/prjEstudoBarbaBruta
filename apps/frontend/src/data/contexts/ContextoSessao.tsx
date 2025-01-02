@@ -17,6 +17,7 @@ export default ContextoSessao
 
 export function ProvedorSessao(props: any) {
     const nomeCookie = 'barba-token'
+    const emailUsuarioCookie = 'barba-usuario'
 
     const [carregando, setCarregando] = useState(true)
     const [token, setToken] = useState<string | null>(null)
@@ -28,6 +29,7 @@ export function ProvedorSessao(props: any) {
             const { token, usuario } = obterSessao()
             setToken(token)
             setUsuario(usuario)
+            cookie.set(emailUsuarioCookie, usuario?.email ?? '')
         } finally {
             setCarregando(false)
         }
