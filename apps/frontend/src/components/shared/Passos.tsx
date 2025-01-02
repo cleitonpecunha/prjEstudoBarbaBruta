@@ -1,119 +1,76 @@
-import { useState } from "react"
-import { IconCheck, IconChevronLeft, IconChevronRight } from "@tabler/icons-react"
+import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react'
+import { useState } from 'react'
 
 export interface PassosProps {
     labels: string[]
     children: any
-    permiteProximoPasso?: boolean[]
-    labelAcao?: string
-    acao?: () => void
+    permiteProximoPasso: boolean
+    permiteProximoPassoMudou(valor: boolean): void
 }
 
 export default function Passos(props: PassosProps) {
-    
     const [passoAtual, setPassoAtual] = useState(0)
 
-    function semPassoAnterior() {
-        return passoAtual === 0
-    }
-
     function passoAnterior() {
-        if (semPassoAnterior()) return
         setPassoAtual(passoAtual - 1)
-    }
-
-    function semProximoPasso() {
-        return passoAtual === props.labels.length - 1
+        props.permiteProximoPassoMudou(true)
     }
 
     function proximoPasso() {
-        if (semProximoPasso()) return
         setPassoAtual(passoAtual + 1)
+        props.permiteProximoPassoMudou(false)
     }
 
-    function renderizarLabels() {
+    function renderizarPassos() {
         return (
-            <div className="flex gap-4">
-                
+            <div className="flex flex-col md:flex-row gap-4 md:gap-7">
                 {props.labels.map((label, i) => {
-                    
-                    const selecionado = i === passoAtual
-                    
                     return (
                         <div key={i} className="flex items-center gap-2">
                             <span
+                                key={i}
                                 className={`
-                                    flex items-center justify-center
-                                    w-9 h-9 rounded-full
-                                ${selecionado ? 'bg-white text-black font-bold' : 'bg-zinc-700 text-zinc-400'}
+                                    flex justify-center items-center w-9 h-9 p-1 rounded-full font-bold
+                                    ${i === passoAtual ? 'bg-white text-black' : 'text-zinc-500 bg-zinc-700'} 
                                 `}
                             >
                                 {i + 1}
                             </span>
-                            <span className={selecionado ? 'text-white' : 'text-zinc-600'}>
+                            <span className={i === passoAtual ? 'text-white' : 'text-zinc-700'}>
                                 {label}
                             </span>
                         </div>
                     )
-
                 })}
-                
             </div>
         )
     }
 
-    const permiteProximoPasso = props.permiteProximoPasso?.[passoAtual] ?? true
-
     return (
-        <div className="flex-1 flex flex-col gap-10">
-            
-            <div>{renderizarLabels()}</div>
-            <div>{props.children[passoAtual] ?? props.children}</div>
-            
-            <div className="flex gap-3">
-                
+        <div className="flex flex-col gap-10 items-center lg:items-stretch">
+            <div>{renderizarPassos()}</div>
+            <div>{props.children?.[passoAtual] ?? props.children}</div>
+            <div className="flex gap-3 select-none">
                 <button
                     onClick={passoAnterior}
-                    disabled={semPassoAnterior()}
-                    className={`
-                        flex gap-1 items-center button
-                        ${semPassoAnterior() ? 'cursor-not-allowed opacity-50' : ''}    
-                    `}
+                    disabled={passoAtual === 0}
+                    className="flex gap-1 items-center bg-zinc-700 text-sm text-white px-4 py-1.5 rounded-md disabled:opacity-30"
                 >
                     <IconChevronLeft size={20} />
                     <span>Anterior</span>
                 </button>
-                
-                {props.acao && semProximoPasso() ? (
-                    
-                    <button
-                        onClick={props.acao}
-                        disabled={!permiteProximoPasso}
-                        className={`
-                            flex gap-1 items-center button bg-yellow-500 text-black
-                            ${!permiteProximoPasso ? 'cursor-not-allowed opacity-50' : ''}
-                        `}
-                    >
-                        <IconCheck size={20} />
-                        <span>{props.labelAcao ?? 'Finalizar'}</span>
-                    </button>
-                ) : (
-                    <button
-                        onClick={proximoPasso}
-                        disabled={semProximoPasso() || !permiteProximoPasso}
-                        className={`
-                            flex gap-1 items-center button
-                            ${semProximoPasso() || !permiteProximoPasso ? 'cursor-not-allowed opacity-50' : ''}
-                        `}
-                    >
-                        <IconChevronRight size={20} />
-                        <span>Próximo</span>
-                    </button>
-
-                )}
-
+                <button
+                    onClick={proximoPasso}
+                    disabled={
+                        passoAtual === (props.children?.length ?? 0) - 1 ||
+                        !props.permiteProximoPasso
+                    }
+                    className="flex gap-1 items-center bg-zinc-700 text-sm text-white px-4 py-1.5 rounded-md disabled:opacity-30"
+                >
+                    <span>Próximo</span>
+                    <IconChevronRight size={20} />
+                </button>
             </div>
-
         </div>
     )
 }
