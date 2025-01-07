@@ -43,7 +43,7 @@ model ProfissionalUsuario {
   profissional    Profissional @relation(fields: [profissionalId], references: [id])
   profissionalId  Int
 
-  @@map("profissionaisusuarios")
+  @@map("profissionaisusuario")
 }
 
 model Servico {
@@ -70,17 +70,29 @@ model Agendamento {
   @@map("agendamentos")
 }
 
-model HoraCheiaAtendimento {
-  id   Int @id @default(autoincrement())
-  hora Int @unique
-}
-
-model DiaSemanaAtendimento {
+model HoraAgendamento {
   id         Int @id @default(autoincrement())
-  descricao String @unique
+  horario    String @unique
+  periodoDia String
+  ativo      Boolean
+
+  @@map("horasagendamento")
 }
 
-model PeriodoAtendimento {
-  id    Int @id @default(autoincrement())
-  ativo Boolean @default(false)
+model DiaSemanaAgendamento {
+  id             Int @id @default(autoincrement())
+  ordemDiaSemana Int @unique
+  nomeDiaSemana  String @unique
+  ativo          Boolean
+
+  @@map("diassemanaagendamento")
+}
+
+model DataIndisponivelAgendamento {
+  id         Int @id @default(autoincrement())
+  data       DateTime @unique
+  descricao  String
+  periodoDia String
+
+  @@map("datasindisponivelagendamento")
 }

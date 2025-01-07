@@ -19,12 +19,12 @@ CREATE TABLE "profissionais" (
 );
 
 -- CreateTable
-CREATE TABLE "profissionaisusuarios" (
+CREATE TABLE "profissionaisusuario" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "usuarioId" INTEGER NOT NULL,
     "profissionalId" INTEGER NOT NULL,
-    CONSTRAINT "profissionaisusuarios_usuarioId_fkey" FOREIGN KEY ("usuarioId") REFERENCES "usuarios" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT "profissionaisusuarios_profissionalId_fkey" FOREIGN KEY ("profissionalId") REFERENCES "profissionais" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT "profissionaisusuario_usuarioId_fkey" FOREIGN KEY ("usuarioId") REFERENCES "usuarios" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "profissionaisusuario_profissionalId_fkey" FOREIGN KEY ("profissionalId") REFERENCES "profissionais" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
@@ -48,6 +48,30 @@ CREATE TABLE "agendamentos" (
 );
 
 -- CreateTable
+CREATE TABLE "horasagendamento" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "horario" TEXT NOT NULL,
+    "periodoDia" TEXT NOT NULL,
+    "ativo" BOOLEAN NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "diassemanaagendamento" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "ordemDiaSemana" INTEGER NOT NULL,
+    "nomeDiaSemana" TEXT NOT NULL,
+    "ativo" BOOLEAN NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "datasindisponivelagendamento" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "data" DATETIME NOT NULL,
+    "descricao" TEXT NOT NULL,
+    "periodoDia" TEXT NOT NULL
+);
+
+-- CreateTable
 CREATE TABLE "_AgendamentoToServico" (
     "A" INTEGER NOT NULL,
     "B" INTEGER NOT NULL,
@@ -63,6 +87,18 @@ CREATE UNIQUE INDEX "profissionais_nome_key" ON "profissionais"("nome");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "servicos_nome_key" ON "servicos"("nome");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "horasagendamento_horario_key" ON "horasagendamento"("horario");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "diassemanaagendamento_ordemDiaSemana_key" ON "diassemanaagendamento"("ordemDiaSemana");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "diassemanaagendamento_nomeDiaSemana_key" ON "diassemanaagendamento"("nomeDiaSemana");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "datasindisponivelagendamento_data_key" ON "datasindisponivelagendamento"("data");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "_AgendamentoToServico_AB_unique" ON "_AgendamentoToServico"("A", "B");
