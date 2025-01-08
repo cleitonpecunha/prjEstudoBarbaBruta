@@ -1,4 +1,4 @@
-import Horario from "../model/Hoarario";
+import Horario from "../model/Horario";
 
 export default interface RepositorioHorario {
     

@@ -1,5 +1,5 @@
 import CasoDeUso from '../../shared/CasoDeUso'
-import Horario from '../model/Hoarario'
+import Horario from '../model/Horario'
 import RepositorioHorario from '../provider/RepositorioHorario'
 
 export default class BuscarHorario implements CasoDeUso<void, Horario[]> {

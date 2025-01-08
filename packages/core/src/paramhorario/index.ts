@@ -1,4 +1,4 @@
-import Horario from "./model/Hoarario";
+import Horario from "./model/Horario";
 import RepositorioHorario from "./provider/RepositorioHorario";
 import BuscarHorario from "./service/BuscarHorario";
 
