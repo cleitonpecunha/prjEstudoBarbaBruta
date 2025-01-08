@@ -1,4 +1,4 @@
-export default interface HoraAgendamento {
+export default interface Horario {
     id: number
     horario: String
     periodoDia: String

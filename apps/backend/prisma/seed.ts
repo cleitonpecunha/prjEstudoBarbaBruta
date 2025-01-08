@@ -1,12 +1,10 @@
 import { PrismaClient } from '@prisma/client';
-import { profissionais, servicos, Usuario, ProfissionalUsuario, horasAgendamento, diasSemanaAgendamento } from '@barbabrutal/core';
+import { profissionais, servicos, Usuario, ProfissionalUsuario, paramhorarios, paramDiasSemana } from '@barbabrutal/core';
 
 const prisma = new PrismaClient();
 
-///* 
 async function seed() { 
   
-  /*
   //
   // Inserir os profissionais
   //
@@ -20,6 +18,20 @@ async function seed() {
   
   await prisma.servico.deleteMany();
   await prisma.servico.createMany({ data: servicos as any });
+
+  //
+  // Inserir Horas de Agendamento
+  //
+   
+  await prisma.horario.deleteMany();
+  await prisma.horario.createMany({ data: paramhorarios as any });
+
+  //
+  // Inserir Dia da Semana de Agendamento
+  //
+   
+  await prisma.diaSemana.deleteMany();
+  await prisma.diaSemana.createMany({ data: paramDiasSemana as any });
   
   //
   // Gerar os registro de usuário
@@ -56,23 +68,7 @@ async function seed() {
       profissional: { connect: { id: 1 } },
     }
   });
-  */
-
-  //
-  // Inserir Horas de Agendamento
-  //
-   
-  await prisma.horaAgendamento.deleteMany();
-  await prisma.horaAgendamento.createMany({ data: horasAgendamento as any });
-
-  //
-  // Inserir Dia da Semana de Agendamento
-  //
-   
-  await prisma.diaSemanaAgendamento.deleteMany();
-  await prisma.diaSemanaAgendamento.createMany({ data: diasSemanaAgendamento as any });
 
 }
 
 seed(); 
-//*/

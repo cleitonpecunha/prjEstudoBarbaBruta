@@ -48,7 +48,7 @@ CREATE TABLE "agendamentos" (
 );
 
 -- CreateTable
-CREATE TABLE "horasagendamento" (
+CREATE TABLE "horarios" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "horario" TEXT NOT NULL,
     "periodoDia" TEXT NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE "horasagendamento" (
 );
 
 -- CreateTable
-CREATE TABLE "diassemanaagendamento" (
+CREATE TABLE "diassemana" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "ordemDiaSemana" INTEGER NOT NULL,
     "nomeDiaSemana" TEXT NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE "diassemanaagendamento" (
 );
 
 -- CreateTable
-CREATE TABLE "datasindisponivelagendamento" (
+CREATE TABLE "datasindisponivel" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "data" DATETIME NOT NULL,
     "descricao" TEXT NOT NULL,
@@ -89,16 +89,16 @@ CREATE UNIQUE INDEX "profissionais_nome_key" ON "profissionais"("nome");
 CREATE UNIQUE INDEX "servicos_nome_key" ON "servicos"("nome");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "horasagendamento_horario_key" ON "horasagendamento"("horario");
+CREATE UNIQUE INDEX "horarios_horario_key" ON "horarios"("horario");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "diassemanaagendamento_ordemDiaSemana_key" ON "diassemanaagendamento"("ordemDiaSemana");
+CREATE UNIQUE INDEX "diassemana_ordemDiaSemana_key" ON "diassemana"("ordemDiaSemana");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "diassemanaagendamento_nomeDiaSemana_key" ON "diassemanaagendamento"("nomeDiaSemana");
+CREATE UNIQUE INDEX "diassemana_nomeDiaSemana_key" ON "diassemana"("nomeDiaSemana");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "datasindisponivelagendamento_data_key" ON "datasindisponivelagendamento"("data");
+CREATE UNIQUE INDEX "datasindisponivel_data_key" ON "datasindisponivel"("data");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "_AgendamentoToServico_AB_unique" ON "_AgendamentoToServico"("A", "B");

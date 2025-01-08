@@ -1,4 +1,4 @@
-export default interface DiaSemanaAgendamento {
+export default interface DiaSemana {
     id: number
     ordemDiaSemana: number
     nomeDiaSemana: String

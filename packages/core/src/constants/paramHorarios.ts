@@ -1,6 +1,6 @@
-import { HoraAgendamento } from "../horaagendamento"
+import { Horario } from "../paramhorario"
 
-const horasAgendamento: HoraAgendamento[] = [
+const paramhorarios: Horario[] = [
     {
         id: 1,        
         horario: '06:00',
@@ -435,4 +435,4 @@ const horasAgendamento: HoraAgendamento[] = [
     },
 ]
 
-export default horasAgendamento
+export default paramhorarios

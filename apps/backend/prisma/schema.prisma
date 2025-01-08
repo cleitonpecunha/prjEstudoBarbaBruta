@@ -70,29 +70,29 @@ model Agendamento {
   @@map("agendamentos")
 }
 
-model HoraAgendamento {
+model Horario {
   id         Int @id @default(autoincrement())
   horario    String @unique
   periodoDia String
   ativo      Boolean
 
-  @@map("horasagendamento")
+  @@map("horarios")
 }
 
-model DiaSemanaAgendamento {
+model DiaSemana {
   id             Int @id @default(autoincrement())
   ordemDiaSemana Int @unique
   nomeDiaSemana  String @unique
   ativo          Boolean
 
-  @@map("diassemanaagendamento")
+  @@map("diassemana")
 }
 
-model DataIndisponivelAgendamento {
+model DataIndisponivel {
   id         Int @id @default(autoincrement())
   data       DateTime @unique
   descricao  String
   periodoDia String
 
-  @@map("datasindisponivelagendamento")
+  @@map("datasindisponivel")
 }

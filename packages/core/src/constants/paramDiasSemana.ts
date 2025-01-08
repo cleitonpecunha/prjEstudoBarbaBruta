@@ -1,6 +1,6 @@
-import { DiaSemanaAgendamento } from "../diasemanaagendamento"
+import { DiaSemana } from "../paramdiasemana"
 
-const diasSemanaAgendamento: DiaSemanaAgendamento[] = [
+const paramDiasSemana: DiaSemana[] = [
     {
         id: 1,
         ordemDiaSemana: 1,
@@ -45,4 +45,4 @@ const diasSemanaAgendamento: DiaSemanaAgendamento[] = [
     },
 ]
 
-export default diasSemanaAgendamento
+export default paramDiasSemana
