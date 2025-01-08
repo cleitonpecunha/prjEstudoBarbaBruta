@@ -1,4 +1,14 @@
-GET http://localhost:3001/servico
+
+GET http://localhost:3001/servicos
+
+###
+GET http://localhost:3001/profissionais
+
+###
+GET http://localhost:3001/horarios
+
+###
+GET http://localhost:3001/diassemana
 
 
 ###
@@ -10,6 +20,7 @@ Content-Type: application/json
     "senha": "#Senha123"
 }
 
+
 ###
 POST http://localhost:3001/usuario/registrar
 Content-Type: application/json
@@ -20,6 +31,7 @@ Content-Type: application/json
     "senha": "#Senha123",
     "telefone": "11999999999"
 }
+
 
 ###
 POST http://localhost:3001/agendamentos
@@ -37,17 +49,21 @@ Content-Type: application/json
     ]
 }
 
+
 ###
 GET http://localhost:3001/agendamentos/1/2024-12-25
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6Ik1hcmPDo28gTWFjaGFkYWRhIiwiZW1haWwiOiJtYXJjYW9AYmFyYmFicnV0YWwuYXBwIiwidGVsZWZvbmUiOiIoMTEpIDk5OTk5LTk5OTkiLCJiYXJiZWlybyI6dHJ1ZSwiaWF0IjoxNzM0OTY2MzUxLCJleHAiOjE3MzYyNjIzNTF9.e0egMWQEroFF84QS8EqnZQUv9uwgAUzNNQNOROfs0q4
+
 
 ###
 DELETE http://localhost:3001/agendamentos/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibm9tZSI6IlJlYmVjYSBQZXJlaXJhIFNpbHZhIiwiZW1haWwiOiJyZWJlY2FAem1haWwuY29tIiwidGVsZWZvbmUiOiIoMTEpIDg4ODg4LTk5OTkiLCJiYXJiZWlybyI6ZmFsc2UsImlhdCI6MTczMzIyMjE4NCwiZXhwIjoxNzMzMzA4NTg0fQ.MD7m3D2HfSSCsdnKApa0HWGKspk_YjYRjuoO58C3BtU
 
+
 ###
 GET http://localhost:3001/agendamentos/ocupacao/1/2024-12-25
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6Ik1hcmPDo28gTWFjaGFkYWRhIiwiZW1haWwiOiJtYXJjYW9AYmFyYmFicnV0YWwuYXBwIiwidGVsZWZvbmUiOiIoMTEpIDk5OTk5LTk5OTkiLCJiYXJiZWlybyI6dHJ1ZSwiaWF0IjoxNzM0OTY2MzUxLCJleHAiOjE3MzYyNjIzNTF9.e0egMWQEroFF84QS8EqnZQUv9uwgAUzNNQNOROfs0q4
+
 
 ###
 GET http://localhost:3001/profissionaisusuarios/4
